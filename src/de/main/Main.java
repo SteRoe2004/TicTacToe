@@ -1,4 +1,8 @@
+package de.main;
+
 import java.util.Scanner;
+
+import static de.main.TTT.gameOver;
 
 public class Main {
    public static void main(String []args) {
@@ -20,7 +24,7 @@ public class Main {
            game.changePlayer();
 
        }
-       while (!game.checkForWin() && !game.isBoardFull());
+       while (!gameOver(game));
        if (game.isBoardFull() && !game.checkForWin()) {
            System.out.println("The game was a tie!");
        } else {

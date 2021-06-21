@@ -3,15 +3,15 @@ package de.main;
 public class TTT {
 
 
-  private char[][] board;
+    private char[][] board;
     private char currentPlayerMark;
 
     // Funktionen
     public TTT() {
-    board = new char[3][3];
-    currentPlayerMark ='x';
-    initializeBoard();
-}
+        board = new char[3][3];
+        currentPlayerMark = 'x';
+        initializeBoard();
+    }
 
     public void initializeBoard() {
         //Schleife, die drei Spalten in drei Zeilen initialisiert
@@ -64,7 +64,7 @@ public class TTT {
         return false;
     }
 
-    private boolean checkColumnsForWin() {
+    public boolean checkColumnsForWin() {
         for (int j = 0; j < 3; j++) {
             if (checkRowCol(board[0][j], board[1][j], board[2][j])) { // Methode zum prüfen wo wir sind
                 return true;
@@ -73,7 +73,7 @@ public class TTT {
         return false;
     }
 
-    private boolean checkDiagonalsForWin() {
+    public boolean checkDiagonalsForWin() {
         return (checkRowCol(board[0][0], board[1][1], board[2][2])) || checkRowCol(board[0][2], board[1][1], board[2][0]);
     }
 
@@ -100,7 +100,7 @@ public class TTT {
 
     public boolean placeMark(int row, int col) {
         if ((row < 3) && (row >= 0)) {
-            if ((col < 3) && (col >=0)){
+            if ((col < 3) && (col >= 0)) {
                 if (board[row][col] == '-') {
                     board[row][col] = currentPlayerMark;
                     return true;
@@ -110,16 +110,23 @@ public class TTT {
         }
         return false;
     }
-    public char getCurrentPlayerMark(){
+
+    public char getCurrentPlayerMark() {
         return currentPlayerMark;
     }
 
-  public char[][] getBoard() {
-    return board;
-  }
+    public char[][] getBoard() {
+        return board;
+    }
 
-  public void setBoard(char[][] board) {
-    this.board = board;
-  }
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
+
+
+
+    public static boolean gameOver(TTT game){
+        return (game.checkForWin() || game.isBoardFull());
+
+    }
 }
-
