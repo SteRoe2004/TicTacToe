@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
    public static void main(String []args) {
        Scanner scan = new Scanner(System.in);
-       TTT game = new TTT();
+       de.main.TTT game = new de.main.TTT();
        game.initializeBoard();
        System.out.println("Tic-Tac-Toe!");
        do {

@@ -1,5 +1,9 @@
-public class TTT<board> {
-    private char[][] board;
+package de.main;
+
+public class TTT {
+
+
+  private char[][] board;
     private char currentPlayerMark;
 
     // Funktionen
@@ -51,7 +55,7 @@ public class TTT<board> {
     }
 
     // Hilfsmethoden, die nicht nach außen sichtbar werden
-    private boolean checkRowsForWin() {
+    public boolean checkRowsForWin() {
         for (int i = 0; i < 3; i++) {
             if (checkRowCol(board[i][0], board[i][1], board[i][2])) { // Methode zum prüfen wo wir sind
                 return true;
@@ -109,5 +113,13 @@ public class TTT<board> {
     public char getCurrentPlayerMark(){
         return currentPlayerMark;
     }
+
+  public char[][] getBoard() {
+    return board;
+  }
+
+  public void setBoard(char[][] board) {
+    this.board = board;
+  }
 }
 
